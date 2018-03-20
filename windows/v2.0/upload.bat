@@ -14,5 +14,5 @@ dfu-util -d 0483:df11 -a 0 -s 0x0800B000 -D erase.bin
 dfu-util -d 0483:df11 -a 0 -s 0x0800B400 -D erase.bin
 dfu-util -d 0483:df11 -a 0 -s 0x0800B800 -D erase.bin
 dfu-util -d 0483:df11 -a 0 -s 0x0800BC00 -D erase.bin
-dfu-util.exe -d 0483:df11 -a 0 -D Touch2.dfu
+dfu-util.exe -d 0483:df11 -a 0 -D TOUCH2.dfu
 pause
