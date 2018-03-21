@@ -1,5 +1,5 @@
 import os
-def run():
+def erase():
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x08008000 -D erase.bin")
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x08008400 -D erase.bin")
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x08008800 -D erase.bin")
@@ -16,3 +16,12 @@ def run():
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x0800B400 -D erase.bin")
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x0800B800 -D erase.bin")
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x0800BC00 -D erase.bin")
+p=os.popen("dfu-util -l")
+if p.read().find('M29W128F') > 0:
+  erase()
+  os.system("dfu-util.exe -d 0483:df11 -a 0 -D TOUCH0321v1.dfu")
+  input()
+else:
+  erase()
+  os.system("dfu-util.exe -d 0483:df11 -a 0 -D TOUCH0321v2.dfu")
+  input()
