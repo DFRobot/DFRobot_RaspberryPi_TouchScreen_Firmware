@@ -14,7 +14,8 @@ if p != True:
     os.system("sudo apt-get install xserver-xorg-input-libinput")
 p = os.path.isfile(os.path.join('/etc/X11/','xorg.conf.d'))
 if p != True:
-    os.system("sudo cp /usr/share/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/")
+    os.system("sudo mkdir /etc/X11/xorg.conf.d")
+os.system("sudo cp /usr/share/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/")
 getok = False
 with open('/etc/X11/xorg.conf.d/40-libinput.conf','r') as f:
     lines=f.readlines()
