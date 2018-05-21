@@ -19,9 +19,9 @@ def erase():
 p=os.popen("dfu-util -l")
 if p.read().find('M29W128F') > 0:
   erase()
-  os.system("dfu-util.exe -d 0483:df11 -a 0 -D TOUCH0321v1.dfu")
+  os.system("dfu-util.exe -d 0483:df11 -a 0 -D TOUCH0517v1.dfu")
   input()
 else:
   erase()
-  os.system("dfu-util.exe -d 0483:df11 -a 0 -D TOUCH0321v2.dfu")
+  os.system("dfu-util.exe -d 0483:df11 -a 0 -D TOUCH0517v2.dfu")
   input()
