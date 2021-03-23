@@ -17,4 +17,4 @@ def erase():
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x0800B800 -D erase.bin")
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x0800BC00 -D erase.bin")
 erase()
-os.system("dfu-util -d 0483:df11 -a 0 -D TOUCH0509.dfu")
+os.system("dfu-util -d 0483:df11 -a 0 -D TOUCH0524.dfu")
