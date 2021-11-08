@@ -88,8 +88,10 @@ def erase2():
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x08007000 -D erase.bin")
 p=os.popen("dfu-util -l")
 if p.read().find('M29W128F') > 0:
-  erase1()
+  erase()
   os.system("dfu-util -d 0483:df11 -a 0 -D TOUCH0524.dfu")
+  input()
 else:
   erase2()
   os.system("dfu-util -d 0483:df11 -a 0 -D DFR0524_GD32V.dfu")
+  input()
