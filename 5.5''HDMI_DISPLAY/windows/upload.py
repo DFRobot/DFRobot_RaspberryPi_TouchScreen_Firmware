@@ -86,12 +86,24 @@ def erase2():
     #os.system("dfu-util -d 0483:df11 -a 0 -s 0x08017800 -D erase.bin")
     #os.system("dfu-util -d 0483:df11 -a 0 -s 0x08017C00 -D erase.bin")
     os.system("dfu-util -d 0483:df11 -a 0 -s 0x08007000 -D erase.bin")
-p=os.popen("dfu-util -l")
-if p.read().find('M29W128F') > 0:
-  erase()
+gd32v = 1
+p1=os.popen("dfu-util -l")
+if p1.read().find('M29W128F') > 0:
+  erase1()
   os.system("dfu-util.exe -d 0483:df11 -a 0 -D TOUCH0524.dfu")
+  gd32v = 0
   input()
-else:
+
+p2=os.popen("dfu-util -l")
+if p2.read().find('M29W129') > 0:
+  gd32v = 0
+  print("esp32s2")
+  os.system("dfu-util.exe -d 0483:df11 -a 0 -D DFR0524_ESP32S2.dfu")
+  input()
+
+
+if gd32v == 1:
+  print("gd32v")
   erase2()
   os.system("dfu-util.exe -d 0483:df11 -a 0 -D DFR0524_GD32V.dfu")
   input()
